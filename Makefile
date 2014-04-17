@@ -16,6 +16,10 @@ library: 2048.c 2048.h
 nc: nc2048.c nc2048.h library
 	$(CC) $(CFLAGS) nc2048.c -lcurses -l2048 -L. -o nc2048
 
+
+tests: tst2k.c library
+	$(CC) $(CFLAGS) tst2k.c -lm -L. -l2048 -o tst2k
+
 all: nc
 
 clean:
