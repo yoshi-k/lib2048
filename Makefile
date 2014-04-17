@@ -2,6 +2,10 @@
 CC=gcc
 CFLAGS=-g -Wall -Wextra -std=gnu99
 #CFLAGS=-std=gnu99 -O3
+
+#CC=clang
+#CFLAGS=-g -Wall -Wextra -std=gnu99 -fno-omit-frame-pointer -fsanitize=address
+
 .PHONY: clean all
 
 library: 2048.c 2048.h

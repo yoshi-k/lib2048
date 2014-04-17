@@ -29,12 +29,10 @@ game* rndState(int size, unsigned int seed, float occupation){
     return state;
 }
 
-int main(int argc, char* argv[]){
 
-
-  unsigned int rseed=22356;
-
+unsigned int fuzzMove(unsigned int rseed){
   for(int counter=0; counter < 1e4; counter++){
+
 
     game* state=rndState(floor(36.*rand_r(&rseed)/(float)RAND_MAX), rand_r(&rseed), rand_r(&rseed)/(float)RAND_MAX);
     game* backUp=cpyGame(state);
@@ -64,6 +62,21 @@ int main(int argc, char* argv[]){
 
     delGame(state);
     delGame(backUp);
+  }
+
+return rseed;
+}
+
+int main(int argc, char* argv[]){
+
+
+  unsigned int rseed=22356;
+
+  rseed=fuzzMove(rseed);
+
+  for(int counter=0; counter < 10; counter++){
+
+
   }
   
 }
